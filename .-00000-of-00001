@@ -1,0 +1,21 @@
+
+gcloud auth list # tells you the active user
+gcloud config get-value project # tells you the active project 
+
+gcloud config configurations list # All configurations
+
+gcloud config configurations create [NAME] # Create config
+gcloud config set project [PROJECT-ID]
+gcloud auth login   # will ask you for the token to login use --no-launch-browser if remote
+gcloud auth application-default login # will cause your credentials to be saved 
+
+python3 -m venv tvenv
+source tvenv/bin/activate
+pip install wheel
+pip install 'apache-beam[gcp]'
+pip install pyparsing==2.4.2 # force install updated to remove downcaseTokens errors
+                            # AttributeError: module 'pyparsing' has no attribute 'downcaseTokens'
+
+
+
+gcloud iam service-accounts create testSvcAcct1 --display-name "test svc account" --project=<projectId>
